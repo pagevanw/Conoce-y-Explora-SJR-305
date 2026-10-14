@@ -1,82 +1,190 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Página de Inicio</title>
-</head>
-<body>
+html
+from flask import Flask
 
-    <h1>Bienvenido a la página de inicio</h1>
-    <p>Por favor, regístrate o inicia sesión.</p>
+app = Flask(__name__)
 
-    <hr>
+# Página de Inicio
+@app.route('/')
+def inicio():
+    return '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>San José del Rincón - Inicio</title>
+    </head>
+    <body>
 
-    <h1>Crear cuenta</h1>
+        <h1>Bienvenido a San José del Rincón</h1>
+        <p>Conoce los lugares más emblemáticos y la riqueza natural de nuestro municipio.</p>
 
-    <input type="text" id="nuevoUsuario" placeholder="Crea un usuario">
-    <br><br>
+        <hr>
 
-    <input type="password" id="nuevaContrasena" placeholder="Crea una contraseña">
-    <br><br>
+        <h2>Lugares Emblemáticos</h2>
 
-    <button onclick="registrar()">Registrarse</button>
+        <h3>1. Santuario de la Mariposa Monarca (La Mesa)</h3>
+        <p>Un refugio natural rodeado de grandes bosques de oyamel donde miles de mariposas pasan el invierno.</p>
 
-    <hr>
+        <h3>2. Plaza Principal y Parroquia de San José</h3>
+        <p>El centro histórico y cultural del municipio, ideal para caminar y conocer la tradición local.</p>
 
-    <h1>Iniciar sesión</h1>
+        <h3>3. Presa del Llano y Áreas Naturales</h3>
+        <p>Espacios verdes idóneos para el senderismo, campismo y actividades al aire libre.</p>
 
-    <input type="text" id="usuario" placeholder="Usuario">
-    <br><br>
+        <hr>
 
-    <input type="password" id="contrasena" placeholder="Contraseña">
-    <br><br>
+        <h2>Reseñas de Visitantes</h2>
 
-    <button onclick="iniciarSesion()">Iniciar sesión</button>
+        <p><strong>Juan P. - 5 de 5 estrellas</strong></p>
+        <p>"El santuario de La Mesa es un lugar increíble. Una experiencia inolvidable estar rodeado de la naturaleza."</p>
 
-    <p id="mensaje"></p>
+        <p><strong>María G. - 5 de 5 estrellas</strong></p>
+        <p>"Un pueblo muy tranquilo con excelente gastronomía tradicional."</p>
 
-    <script>
-        let usuarioRegistrado = "";
-        let contrasenaRegistrada = "";
+        <hr>
 
-        function registrar() {
-            usuarioRegistrado =
-                document.getElementById("nuevoUsuario").value;
+        <!-- Botón básico en HTML que dirige al apartado de detalles -->
+        <form action="/detalles">
+            <button type="submit">Ver más información de los lugares</button>
+        </form>
 
-            contrasenaRegistrada =
-                document.getElementById("nuevaContrasena").value;
+    </body>
+    </html>
+    '''
 
-            if (usuarioRegistrado === "" ||
-                contrasenaRegistrada === "") {
-                document.getElementById("mensaje").textContent =
-                    "Completa todos los campos";
-                return;
-            }
+# Segundo Apartado (Detalles de los lugares)
+@app.route('/detalles')
+def detalles():
+    return '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Detalles de Destinos - San José del Rincón</title>
+    </head>
+    <body>
 
-            document.getElementById("mensaje").textContent =
-                "Registro completado";
-        }
+        <h1>Información Detallada de los Lugares</h1>
+        <p>Guía rápida para tu visita:</p>
 
-        function iniciarSesion() {
-            let usuario =
-                document.getElementById("usuario").value;
+        <hr>
 
-            let contrasena =
-                document.getElementById("contrasena").value;
+        <h3>Santuario de La Mesa</h3>
+        <p><strong>Temporada:</strong> Noviembre a Marzo.</p>
+        <p><strong>Recomendaciones:</strong> Llevar ropa abrigadora y calzado cómodo para caminar en el bosque.</p>
 
-            if (usuario === usuarioRegistrado &&
-                contrasena === contrasenaRegistrada &&
-                usuarioRegistrado !== "") {
+        <hr>
 
-                document.getElementById("mensaje").textContent =
-                    "Inicio de sesión exitoso";
+        <h3>Plaza Principal</h3>
+        <p><strong>Recomendaciones:</strong> Probar la comida típica de la región Mazahua y visitar el mercado.</p>
 
-            } else {
-                document.getElementById("mensaje").textContent =
-                    "Usuario o contraseña incorrectos";
-            }
-        }
-    </script>
+        <hr>
 
-</body>
-</html>
+        <!-- Botón para regresar al inicio -->
+        <form action="/">
+            <button type="submit">Volver al Inicio</button>
+        </form>
+
+    </body>
+    </html>
+    '''
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+    app.py
+
+    from flask import Flask
+
+app = Flask(__name__)
+
+# Pagina de Inicio
+@app.route('/')
+def inicio():
+    return '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>San Jose del Rincon - Inicio</title>
+    </head>
+    <body>
+
+        <h1>Bienvenido a San Jose del Rincon</h1>
+        <p>Conoce los lugares mas emblematicos y la riqueza natural de nuestro municipio.</p>
+
+        <hr>
+
+        <h2>Lugares Emblematicos</h2>
+
+        <h3>1. Santuario de la Mariposa Monarca (La Mesa)</h3>
+        <p>Un refugio natural rodeado de grandes bosques de oyamel donde miles de mariposas pasan el invierno.</p>
+
+        <h3>2. Plaza Principal y Parroquia de San Jose</h3>
+        <p>El centro historico y cultural del municipio, ideal para caminar y conocer la tradicion local.</p>
+
+        <h3>3. Presa del Llano y Areas Naturales</h3>
+        <p>Espacios verdes ideoneos para el senderismo, campismo y actividades al aire libre.</p>
+
+        <hr>
+
+        <h2>Resenas de Visitantes</h2>
+
+        <p><strong>Juan P. - 5 de 5 estrellas</strong></p>
+        <p>"El santuario de La Mesa es un lugar increible. Una experiencia inolvidable estar rodeado de la naturaleza."</p>
+
+        <p><strong>Maria G. - 5 de 5 estrellas</strong></p>
+        <p>"Un pueblo muy tranquilo con excelente gastronomia tradicional."</p>
+
+        <hr>
+
+        <!-- Boton que dirige al apartado de detalles -->
+        <form action="/detalles">
+            <button type="submit">Ver mas informacion de los lugares</button>
+        </form>
+
+    </body>
+    </html>
+    '''
+
+# Segundo Apartado (Detalles de los lugares)
+@app.route('/detalles')
+def detalles():
+    return '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Detalles de Destinos - San Jose del Rincon</title>
+    </head>
+    <body>
+
+        <h1>Informacion Detallada de los Lugares</h1>
+        <p>Guia rapida para tu visita:</p>
+
+        <hr>
+
+        <h3>Santuario de La Mesa</h3>
+        <p><strong>Temporada:</strong> Noviembre a Marzo.</p>
+        <p><strong>Recomendaciones:</strong> Llevar ropa abrigadora y calzado comodo para caminar en el bosque.</p>
+
+        <hr>
+
+        <h3>Plaza Principal</h3>
+        <p><strong>Recomendaciones:</strong> Probar la comida tipica de la region Mazahua y visitar el mercado.</p>
+
+        <hr>
+
+        <!-- Boton para regresar al inicio -->
+        <form action="/">
+            <button type="submit">Volver al Inicio</button>
+        </form>
+
+    </body>
+    </html>
+    '''
+
+if __name__ == '__main__':
+    app.run(debug=True)
