@@ -2,22 +2,81 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - San José del Rincón</title>
+    <title>Página de Inicio</title>
 </head>
 <body>
 
-    <h1>Conoce y Explora San José del Rincón</h1>
+    <h1>Bienvenido a la página de inicio</h1>
+    <p>Por favor, regístrate o inicia sesión.</p>
 
-    <p>
-        Bienvenido a nuestra página. Aquí podrás conocer más sobre
-        San José del Rincón, sus lugares, cultura y atractivos.
-    </p>
+    <hr>
 
-    <!-- Enlace que envuelve al botón para redirigir a la URL -->
-    <a href="https://www.ejemplo.com">
-        <button>Comenzar</button>
-    </a>
+    <h1>Crear cuenta</h1>
+
+    <input type="text" id="nuevoUsuario" placeholder="Crea un usuario">
+    <br><br>
+
+    <input type="password" id="nuevaContrasena" placeholder="Crea una contraseña">
+    <br><br>
+
+    <button onclick="registrar()">Registrarse</button>
+
+    <hr>
+
+    <h1>Iniciar sesión</h1>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <br><br>
+
+    <input type="password" id="contrasena" placeholder="Contraseña">
+    <br><br>
+
+    <button onclick="iniciarSesion()">Iniciar sesión</button>
+
+    <p id="mensaje"></p>
+
+    <script>
+        let usuarioRegistrado = "";
+        let contrasenaRegistrada = "";
+
+        function registrar() {
+            usuarioRegistrado =
+                document.getElementById("nuevoUsuario").value;
+
+            contrasenaRegistrada =
+                document.getElementById("nuevaContrasena").value;
+
+            if (usuarioRegistrado === "" ||
+                contrasenaRegistrada === "") {
+                document.getElementById("mensaje").textContent =
+                    "Completa todos los campos";
+                return;
+            }
+
+            document.getElementById("mensaje").textContent =
+                "Registro completado";
+        }
+
+        function iniciarSesion() {
+            let usuario =
+                document.getElementById("usuario").value;
+
+            let contrasena =
+                document.getElementById("contrasena").value;
+
+            if (usuario === usuarioRegistrado &&
+                contrasena === contrasenaRegistrada &&
+                usuarioRegistrado !== "") {
+
+                document.getElementById("mensaje").textContent =
+                    "Inicio de sesión exitoso";
+
+            } else {
+                document.getElementById("mensaje").textContent =
+                    "Usuario o contraseña incorrectos";
+            }
+        }
+    </script>
 
 </body>
 </html>
