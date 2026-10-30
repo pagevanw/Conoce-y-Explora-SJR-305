@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reseñas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+
+    <h1>Reseñas de los visitantes</h1>
+    <p>Comparte tu opinión sobre los lugares turísticos.</p>
+
+    <form onsubmit="mostrarMensaje(); return false;">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="lugar">Lugar visitado:</label>
+        <select id="lugar" required>
+            <option value="">Selecciona un lugar</option>
+            <option>Parroquia del Señor San José</option>
+            <option>Ex Hacienda San Onofre</option>
+            <option>Santuario de la Mariposa Monarca La Mesa</option>
+        </select>
+
+        <label for="resena">Escribe tu reseña:</label>
+        <textarea id="resena" required></textarea>
+
+        <label for="calificacion">Calificación:</label>
+        <select id="calificacion" required>
+            <option value="">Selecciona una calificación</option>
+            <option>1 estrella</option>
+            <option>2 estrellas</option>
+            <option>3 estrellas</option>
+            <option>4 estrellas</option>
+            <option>5 estrellas</option>
+        </select>
+
+        <button type="submit">Enviar reseña</button>
+
+    </form>
+
+    <script>
+        function mostrarMensaje() {
+            alert("¡Gracias por compartir tu opinión!");
+        }
+    </script>
+
+    <br>
+    <a href="{{ url_for('pagina_principal') }}">Regresar al inicio</a>
+
+</body>
+</html>
