@@ -1,190 +1,30 @@
-html
-from flask import Flask
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>San José del Rincón</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
 
-app = Flask(__name__)
+    <h1>San José del Rincón</h1>
+    <h2>Descubre sus lugares turísticos</h2>
 
-# Página de Inicio
-@app.route('/')
-def inicio():
-    return '''
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>San José del Rincón - Inicio</title>
-    </head>
-    <body>
+    <p>
+        Bienvenido a nuestra página turística de San José del Rincón,
+        un lugar lleno de naturaleza, historia y tradiciones.
+    </p>
 
-        <h1>Bienvenido a San José del Rincón</h1>
-        <p>Conoce los lugares más emblemáticos y la riqueza natural de nuestro municipio.</p>
+    <h3>¿Qué puedes encontrar?</h3>
+    <p>Conoce nuestros lugares turísticos, sus ubicaciones, horarios y reseñas.</p>
 
-        <hr>
+    <nav>
+        <a href="{{ url_for('lugares') }}">Lugares turísticos</a>
+        <a href="{{ url_for('ubicaciones') }}">Ubicaciones</a>
+        <a href="{{ url_for('horarios') }}">Horarios</a>
+        <a href="{{ url_for('resenas') }}">Reseñas</a>
+        <a href="{{ url_for('registro') }}">Registro</a>
+    </nav>
 
-        <h2>Lugares Emblemáticos</h2>
-
-        <h3>1. Santuario de la Mariposa Monarca (La Mesa)</h3>
-        <p>Un refugio natural rodeado de grandes bosques de oyamel donde miles de mariposas pasan el invierno.</p>
-
-        <h3>2. Plaza Principal y Parroquia de San José</h3>
-        <p>El centro histórico y cultural del municipio, ideal para caminar y conocer la tradición local.</p>
-
-        <h3>3. Presa del Llano y Áreas Naturales</h3>
-        <p>Espacios verdes idóneos para el senderismo, campismo y actividades al aire libre.</p>
-
-        <hr>
-
-        <h2>Reseñas de Visitantes</h2>
-
-        <p><strong>Juan P. - 5 de 5 estrellas</strong></p>
-        <p>"El santuario de La Mesa es un lugar increíble. Una experiencia inolvidable estar rodeado de la naturaleza."</p>
-
-        <p><strong>María G. - 5 de 5 estrellas</strong></p>
-        <p>"Un pueblo muy tranquilo con excelente gastronomía tradicional."</p>
-
-        <hr>
-
-        <!-- Botón básico en HTML que dirige al apartado de detalles -->
-        <form action="/detalles">
-            <button type="submit">Ver más información de los lugares</button>
-        </form>
-
-    </body>
-    </html>
-    '''
-
-# Segundo Apartado (Detalles de los lugares)
-@app.route('/detalles')
-def detalles():
-    return '''
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Detalles de Destinos - San José del Rincón</title>
-    </head>
-    <body>
-
-        <h1>Información Detallada de los Lugares</h1>
-        <p>Guía rápida para tu visita:</p>
-
-        <hr>
-
-        <h3>Santuario de La Mesa</h3>
-        <p><strong>Temporada:</strong> Noviembre a Marzo.</p>
-        <p><strong>Recomendaciones:</strong> Llevar ropa abrigadora y calzado cómodo para caminar en el bosque.</p>
-
-        <hr>
-
-        <h3>Plaza Principal</h3>
-        <p><strong>Recomendaciones:</strong> Probar la comida típica de la región Mazahua y visitar el mercado.</p>
-
-        <hr>
-
-        <!-- Botón para regresar al inicio -->
-        <form action="/">
-            <button type="submit">Volver al Inicio</button>
-        </form>
-
-    </body>
-    </html>
-    '''
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-    app.py
-
-    from flask import Flask
-
-app = Flask(__name__)
-
-# Pagina de Inicio
-@app.route('/')
-def inicio():
-    return '''
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>San Jose del Rincon - Inicio</title>
-    </head>
-    <body>
-
-        <h1>Bienvenido a San Jose del Rincon</h1>
-        <p>Conoce los lugares mas emblematicos y la riqueza natural de nuestro municipio.</p>
-
-        <hr>
-
-        <h2>Lugares Emblematicos</h2>
-
-        <h3>1. Santuario de la Mariposa Monarca (La Mesa)</h3>
-        <p>Un refugio natural rodeado de grandes bosques de oyamel donde miles de mariposas pasan el invierno.</p>
-
-        <h3>2. Plaza Principal y Parroquia de San Jose</h3>
-        <p>El centro historico y cultural del municipio, ideal para caminar y conocer la tradicion local.</p>
-
-        <h3>3. Presa del Llano y Areas Naturales</h3>
-        <p>Espacios verdes ideoneos para el senderismo, campismo y actividades al aire libre.</p>
-
-        <hr>
-
-        <h2>Resenas de Visitantes</h2>
-
-        <p><strong>Juan P. - 5 de 5 estrellas</strong></p>
-        <p>"El santuario de La Mesa es un lugar increible. Una experiencia inolvidable estar rodeado de la naturaleza."</p>
-
-        <p><strong>Maria G. - 5 de 5 estrellas</strong></p>
-        <p>"Un pueblo muy tranquilo con excelente gastronomia tradicional."</p>
-
-        <hr>
-
-        <!-- Boton que dirige al apartado de detalles -->
-        <form action="/detalles">
-            <button type="submit">Ver mas informacion de los lugares</button>
-        </form>
-
-    </body>
-    </html>
-    '''
-
-# Segundo Apartado (Detalles de los lugares)
-@app.route('/detalles')
-def detalles():
-    return '''
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Detalles de Destinos - San Jose del Rincon</title>
-    </head>
-    <body>
-
-        <h1>Informacion Detallada de los Lugares</h1>
-        <p>Guia rapida para tu visita:</p>
-
-        <hr>
-
-        <h3>Santuario de La Mesa</h3>
-        <p><strong>Temporada:</strong> Noviembre a Marzo.</p>
-        <p><strong>Recomendaciones:</strong> Llevar ropa abrigadora y calzado comodo para caminar en el bosque.</p>
-
-        <hr>
-
-        <h3>Plaza Principal</h3>
-        <p><strong>Recomendaciones:</strong> Probar la comida tipica de la region Mazahua y visitar el mercado.</p>
-
-        <hr>
-
-        <!-- Boton para regresar al inicio -->
-        <form action="/">
-            <button type="submit">Volver al Inicio</button>
-        </form>
-
-    </body>
-    </html>
-    '''
-
-if __name__ == '__main__':
-    app.run(debug=True)
+</body>
+</html>
