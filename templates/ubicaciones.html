@@ -2,38 +2,29 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ubicaciones de San José del Rincón</title>
+    <title>Ubicaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
 
-    <h1>Ubicaciones de San José del Rincón</h1>
-    <p>Conoce algunas localidades del municipio.</p>
+    <h1>Ubicaciones</h1>
+    <p>Consulta las ubicaciones de algunos lugares de San José del Rincón.</p>
 
-    <h2>San José del Rincón Centro</h2>
-    <a href="https://www.google.com/maps/search/?api=1&query=San+José+del+Rincón+Centro+Estado+de+México" target="_blank">
-        Ver ubicación en Google Maps
-    </a>
+    <h2>San José Centro</h2>
+    <a href="https://www.google.com/maps/search/?api=1&query=San+Jose+del+Rincon+Centro" target="_blank">Ver en Google Maps</a>
 
     <h2>San Onofre</h2>
-    <a href="https://www.google.com/maps/search/?api=1&query=San+Onofre+San+José+del+Rincón" target="_blank">
-        Ver ubicación en Google Maps
-    </a>
+    <a href="https://www.google.com/maps/search/?api=1&query=San+Onofre+San+Jose+del+Rincon" target="_blank">Ver en Google Maps</a>
 
     <h2>La Mesa</h2>
-    <a href="https://www.google.com/maps/search/?api=1&query=La+Mesa+San+José+del+Rincón+Estado+de+México" target="_blank">
-        Ver ubicación en Google Maps
-    </a>
+    <a href="https://www.google.com/maps/search/?api=1&query=La+Mesa+San+Jose+del+Rincon" target="_blank">Ver en Google Maps</a>
 
     <h2>San Antonio Pueblo Nuevo</h2>
-    <a href="https://www.google.com/maps/search/?api=1&query=San+Antonio+Pueblo+Nuevo+San+José+del+Rincón" target="_blank">
-        Ver ubicación en Google Maps
-    </a>
+    <a href="https://www.google.com/maps/search/?api=1&query=San+Antonio+Pueblo+Nuevo+San+Jose+del+Rincon" target="_blank">Ver en Google Maps</a>
 
     <br><br>
-
-    <a href="{{ url_for('lugares') }}">Ir a lugares turísticos</a>
-    <br><br>
-    <a href="{{ url_for('inicio') }}">Volver al inicio</a>
+    <a href="{{ url_for('lugares') }}">Ver lugares turísticos</a>
+    <a href="{{ url_for('pagina_principal') }}">Regresar al inicio</a>
 
 </body>
 </html>
