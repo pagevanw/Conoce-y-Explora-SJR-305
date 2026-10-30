@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+    <h1>Registro e inicio de sesión</h1>
+
+    <h2>Registrarse</h2>
+
+    <form onsubmit="registrarUsuario(); return false;">
+
+        <label>Usuario:</label>
+        <input type="text" id="usuario" required>
+
+        <label>Contraseña:</label>
+        <input type="password" id="contrasena" required>
+
+        <button type="submit">Registrarse</button>
+
+    </form>
+
+    <h2>Iniciar sesión</h2>
+
+    <form onsubmit="iniciarSesion(); return false;">
+
+        <label>Usuario:</label>
+        <input type="text" id="usuarioLogin" required>
+
+        <label>Contraseña:</label>
+        <input type="password" id="contrasenaLogin" required>
+
+        <button type="submit">Iniciar sesión</button>
+
+    </form>
+
+    <a href="{{ url_for('pagina_principal') }}">Regresar al inicio</a>
+
+    <script>
+
+        var usuarioGuardado = "";
+        var contrasenaGuardada = "";
+
+        function registrarUsuario() {
+
+            usuarioGuardado = document.getElementById("usuario").value;
+            contrasenaGuardada = document.getElementById("contrasena").value;
+
+            alert("Registro exitoso. Ahora inicia sesión.");
+
+        }
+
+        function iniciarSesion() {
+
+            var usuario = document.getElementById("usuarioLogin").value;
+            var contrasena = document.getElementById("contrasenaLogin").value;
+
+            if (usuario === usuarioGuardado && contrasena === contrasenaGuardada && usuarioGuardado !== "") {
+
+                alert("Bienvenido");
+
+                window.location.assign("/");
+
+            } else {
+
+                alert("Usuario o contraseña incorrectos.");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
