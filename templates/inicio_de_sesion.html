@@ -1,28 +1,78 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Registro e inicio de sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
 
-    <h1>Conoce y Explora San José del Rincón</h1>
-    <h2>Iniciar sesión</h2>
+    <h2>Crear cuenta</h2>
 
-    <form action="/login" method="POST">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
+    <p>Crea un usuario:</p>
+    <input type="text" id="usuario_registrado">
+
+    <p>Crea una contraseña:</p>
+    <input type="password" id="contrasena_registrada">
+
+    <p>Crea un correo:</p>
+    <input type="email" id="correo_registrado">
+
+    <br><br>
+    <button onclick="registrar()">Registrarse</button>
+
+    <p id="mensaje"></p>
+
+    <div id="inicio" style="display:none;">
+
+        <h2>Iniciar sesión</h2>
+
+        <p>Usuario:</p>
+        <input type="text" id="usuario">
+
+        <p>Contraseña:</p>
+        <input type="password" id="contrasena">
+
+        <p>Correo:</p>
+        <input type="email" id="correo">
 
         <br><br>
+        <button onclick="iniciarSesion()">Iniciar sesión</button>
 
-        <label>Contraseña:</label>
-        <input type="password" name="contrasena" required>
+        <p id="resultado"></p>
 
-        <br><br>
+    </div>
 
-        <button type="submit">Iniciar sesión</button>
-    </form>
+    <script>
+        var usuario_guardado;
+        var contrasena_guardada;
+        var correo_guardado;
+
+        function registrar() {
+            usuario_guardado = document.getElementById("usuario_registrado").value;
+            contrasena_guardada = document.getElementById("contrasena_registrada").value;
+            correo_guardado = document.getElementById("correo_registrado").value;
+
+            if (usuario_guardado == "" || contrasena_guardada == "" || correo_guardado == "") {
+                document.getElementById("mensaje").innerHTML = "Completa todos los datos";
+            } else {
+                document.getElementById("mensaje").innerHTML = "Registro completado. Ahora inicia sesión";
+                document.getElementById("inicio").style.display = "block";
+            }
+        }
+
+        function iniciarSesion() {
+            var usuario = document.getElementById("usuario").value;
+            var contrasena = document.getElementById("contrasena").value;
+            var correo = document.getElementById("correo").value;
+
+            if (usuario == usuario_guardado && contrasena == contrasena_guardada && correo == correo_guardado) {
+                document.getElementById("resultado").innerHTML = "Inicio de sesión exitoso";
+            } else {
+                document.getElementById("resultado").innerHTML = "Usuario, contraseña o correo incorrectos";
+            }
+        }
+    </script>
+    <a href="{{ url_for('pagina_principal') }}">Ingresa al pagina principal como invitado</a>
 
 </body>
 </html>
