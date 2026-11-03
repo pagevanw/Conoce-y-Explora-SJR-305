@@ -1,29 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Lugares turísticos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
-</head>
-<body>
+</head><body><h1>Lugares turísticos de San José del Rincón</h1>
 
-    <h1>Lugares turísticos</h1>
+<p>Conoce algunos de los lugares más interesantes de nuestro municipio.</p>
 
-    <h2>Parroquia del Señor San José</h2>
-    <p>Es un lugar religioso importante para los habitantes del municipio.</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+San+Jose+del+Rincon" target="_blank">Ver ubicación</a>
+<div class="galeria">
 
-    <h2>Ex Hacienda San Onofre</h2>
-    <p>Un sitio histórico que forma parte del patrimonio de la región.</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Ex+Hacienda+San+Onofre" target="_blank">Ver ubicación</a>
+    <div class="tarjeta">
+        <img src="{{ url_for('static', filename='imagenes/parroquia.jpg') }}" alt="Parroquia del Señor San José">
+        <h2>Parroquia del Señor San José</h2>
+        <p>Un lugar religioso importante para los habitantes del municipio, donde se conservan tradiciones y celebraciones.</p>
+    </div>
 
-    <h2>Santuario de la Mariposa Monarca La Mesa</h2>
-    <p>Un espacio natural donde se puede conocer el fenómeno migratorio de la mariposa monarca durante su temporada.</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Santuario+Mariposa+Monarca+La+Mesa+Estado+de+Mexico" target="_blank">Ver ubicación</a>
+    <div class="tarjeta">
+        <img src="{{ url_for('static', filename='imagenes/hacienda.jpg') }}" alt="Ex Hacienda San Onofre">
+        <h2>Ex Hacienda San Onofre</h2>
+        <p>Un sitio histórico que forma parte del patrimonio cultural de la región.</p>
+    </div>
 
-    <br><br>
-    <a href="{{ url_for('pagina_principal') }}">Regresar al inicio</a>
-    <a href="{{ url_for('ubicaciones') }}">Ver todas las ubicaciones</a>
+    <div class="tarjeta">
+        <img src="{{ url_for('static', filename='imagenes/santuario.jpg') }}" alt="Santuario de la Mariposa Monarca La Mesa">
+        <h2>Santuario de la Mariposa Monarca La Mesa</h2>
+        <p>Un espacio natural donde se puede observar la llegada de la mariposa monarca durante su temporada.</p>
+    </div>
+
+</div>
+
+<br>
+
+<a href="{{ url_for('inicio') }}">Regresar al inicio</a>
+<a href="{{ url_for('ubicaciones') }}">Consultar ubicaciones</a>
 
 </body>
 </html>
