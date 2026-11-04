@@ -2,47 +2,74 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Horarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios - Lugares Turísticos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
 
-    <h1>Horarios de lugares turísticos</h1>
+    <header>
+        <h1>Horarios de Lugares Turísticos</h1>
+        <p>Consulta la disponibilidad y apertura de nuestros atractivos</p>
+    </header>
 
-    <table>
-        <tr>
-            <th>Lugar</th>
-            <th>Horario</th>
-        </tr>
-        <tr>
-            <td>Santuario de la Mariposa Monarca La Mesa</td>
-            <td>Consultar según la temporada</td>
-        </tr>
-        <tr>
-            <td>Parroquia del Señor San José</td>
-            <td>Consultar en el lugar</td>
-        </tr>
-        <tr>
-            <td>Ex Hacienda San Onofre</td>
-            <td>Consultar disponibilidad</td>
-        </tr>
-        <tr>
-            <td>Ex Hacienda La Providencia</td>
-            <td>Consultar disponibilidad</td>
-        </tr>
-        <tr>
-            <td>UMA Las Rosas</td>
-            <td>Consultar disponibilidad</td>
-        </tr>
-        <tr>
-            <td>Lienzo Charro</td>
-            <td>Consultar eventos</td>
-        </tr>
-    </table>
+    <nav>
+        <a href="{{ url_for('pagina_principal') }}">Inicio</a>
+        <a href="{{ url_for('lugares') }}">Lugares Turísticos</a>
+    </nav>
 
-    <br>
-    <a href="{{ url_for('pagina_principal') }}">Regresar al inicio</a>
-    <a href="{{ url_for('lugares') }}">Ver lugares turísticos</a>
+    <main>
+        <section>
+            <h2>Información de Horarios</h2>
+            <p>A continuación encontrarás el estado actual y los horarios de visita para cada uno de los puntos turísticos:</p>
+            
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lugar</th>
+                            <th>Horario / Disponibilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Santuario de la Mariposa Monarca La Mesa</td>
+                            <td>Consultar según la temporada</td>
+                        </tr>
+                        <tr>
+                            <td>Parroquia del Señor San José</td>
+                            <td>Consultar en el lugar</td>
+                        </tr>
+                        <tr>
+                            <td>Ex Hacienda San Onofre</td>
+                            <td>Consultar disponibilidad</td>
+                        </tr>
+                        <tr>
+                            <td>Ex Hacienda La Providencia</td>
+                            <td>Consultar disponibilidad</td>
+                        </tr>
+                        <tr>
+                            <td>UMA Las Rosas</td>
+                            <td>Consultar disponibilidad</td>
+                        </tr>
+                        <tr>
+                            <td>Lienzo Charro</td>
+                            <td>Consultar eventos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="contenedor-enlaces" style="margin-top: 30px;">
+                <a href="{{ url_for('pagina_principal') }}" class="boton">Regresar al inicio</a>
+                <a href="{{ url_for('lugares') }}" class="boton">Ver lugares turísticos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Turismo Local</p>
+    </footer>
 
 </body>
 </html>
