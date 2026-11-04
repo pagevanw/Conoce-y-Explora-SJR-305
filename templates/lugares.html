@@ -1,38 +1,73 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Lugares turísticos</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
-</head><body><h1>Lugares turísticos de San José del Rincón</h1>
+</head>
 
-<p>Conoce algunos de los lugares más interesantes de nuestro municipio.</p>
+<body>
 
-<div class="galeria">
+    <h1>Lugares turísticos de San José del Rincón</h1>
 
-    <div class="tarjeta">
-        <img src="{{ url_for('static', filename='imagenes/parroquia.jpg') }}" alt="Parroquia del Señor San José">
-        <h2>Parroquia del Señor San José</h2>
-        <p>Un lugar religioso importante para los habitantes del municipio, donde se conservan tradiciones y celebraciones.</p>
+    <p>Conoce algunos de los lugares más interesantes de nuestro municipio.</p>
+
+    <div class="galeria">
+
+        <!-- Primer lugar -->
+        <div class="tarjeta">
+
+            <img src="{{ url_for('static', filename='imagenes/parroquia.jpg') }}"
+                 alt="Parroquia del Señor San José">
+
+            <h2>Parroquia del Señor San José</h2>
+
+            <p>
+                Un lugar religioso importante para los habitantes del municipio,
+                donde se conservan tradiciones y celebraciones.
+            </p>
+
+        </div>
+
+        <!-- Segundo lugar -->
+        <div class="tarjeta">
+
+            <img src="{{ url_for('static', filename='imagenes/hacienda.jpg') }}"
+                 alt="Ex Hacienda San Onofre">
+
+            <h2>Ex Hacienda San Onofre</h2>
+
+            <p>
+                Un sitio histórico que forma parte del patrimonio cultural
+                de la región.
+            </p>
+
+        </div>
+
+        <!-- Tercer lugar -->
+        <div class="tarjeta">
+
+            <img src="{{ url_for('static', filename='imagenes/santuario.jpg') }}"
+                 alt="Santuario de la Mariposa Monarca La Mesa">
+
+            <h2>Santuario de la Mariposa Monarca La Mesa</h2>
+
+            <p>
+                Un espacio natural donde se puede observar la llegada
+                de la mariposa monarca durante su temporada.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="tarjeta">
-        <img src="{{ url_for('static', filename='imagenes/hacienda.jpg') }}" alt="Ex Hacienda San Onofre">
-        <h2>Ex Hacienda San Onofre</h2>
-        <p>Un sitio histórico que forma parte del patrimonio cultural de la región.</p>
-    </div>
+    <br>
 
-    <div class="tarjeta">
-        <img src="{{ url_for('static', filename='imagenes/santuario.jpg') }}" alt="Santuario de la Mariposa Monarca La Mesa">
-        <h2>Santuario de la Mariposa Monarca La Mesa</h2>
-        <p>Un espacio natural donde se puede observar la llegada de la mariposa monarca durante su temporada.</p>
-    </div>
+    <a href="{{ url_for('inicio') }}">Regresar al inicio</a>
 
-</div>
-
-<br>
-
-<a href="{{ url_for('inicio') }}">Regresar al inicio</a>
-<a href="{{ url_for('ubicaciones') }}">Consultar ubicaciones</a>
+    <a href="{{ url_for('ubicaciones') }}">Consultar ubicaciones</a>
 
 </body>
 </html>
